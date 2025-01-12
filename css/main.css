@@ -1,0 +1,370 @@
+:root {
+  --color-blue-medium: #8fe2e4;
+  --color-purple: #632ce7;
+  --color-purple-hover: #500ded;
+  --color-gray: #ccc;
+  --color-gray-medium: #f8f9fa;
+  --color-yellow: #fac32c;
+  --bg-crema-calido: #faf3e0;
+  --bg-crema-melaza: #f5e6d3;
+  --bg-crema-matiz-rosa: #f9e8d8;
+  --bg-crema-claro: #fff5e1;
+}
+
+/* ------ GENERAL STYLE ------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav > a {
+  color: inherit; /* color del padre */
+}
+
+.container > .row {
+  margin-bottom: 3rem;
+}
+
+body {
+  font-family: "Roboto", sans-serif; /* Fuente normal para el cuerpo */
+}
+
+.photo-frame > img {
+  transition: transform 0.3s ease;
+}
+
+.photo-frame > img:hover {
+  transform: scale(1.05);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Dancing Script", cursive; /* Fuente cursiva para encabezados */
+}
+
+#secService h2,
+#secPortfolio h2,
+#secPerifericos h2,
+#secCursos h2 {
+  font-family: "Dancing Script", cursive; /* Fuente cursiva para títulos de secciones */
+  font-size: 2.5rem; /* Ajusta el tamaño según sea necesario */
+}
+
+.card-title {
+  font-family: "Roboto", sans-serif; /* Fuente normal para títulos de tarjetas */
+}
+
+.card-subtitle {
+  font-size: 1.5rem;
+}
+
+.card-text {
+  font-family: "Roboto", sans-serif; /* Fuente normal para texto de tarjetas */
+}
+
+/* ------ SECTIONS ------*/
+/* ------> Nav */
+.navbar-brand > img {
+  width: 60px;
+  height: 60px;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+.nav-link.active {
+  text-decoration: underline wavy var(--color-purple);
+  text-underline-offset: 9px; /* separar un poco el underline */
+}
+/* ------> Header */
+.icons-social-networks > a {
+  --size: 40px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: filter 0.5s;
+  text-decoration: none;
+}
+
+.icons-social-networks > a,
+.sec-clients > a {
+  transition: filter 0.5s;
+}
+.icons-social-networks > a:hover,
+.sec-clients > a:hover {
+  filter: opacity(0.5);
+}
+
+.bg-facebook {
+  background-color: #023693;
+}
+
+.bg-twitter {
+  background-color: #33a9f3;
+}
+
+.bg-dribbble {
+  background-color: #f1066b;
+}
+
+.photo-frame {
+  font-size: 20px;
+  position: relative;
+}
+
+.photo-frame::before,
+.photo-frame::after {
+  content: "";
+  display: block;
+  width: var(--box-size);
+  height: var(--box-size);
+  position: absolute;
+  z-index: -10;
+  animation: turnZ 7s linear alternate-reverse infinite;
+}
+
+.photo-frame::before {
+  --box-size: 3em;
+  background-image: radial-gradient(
+    var(--color-blue-medium) 50%,
+    var(--color-purple) 50%
+  );
+  top: calc(99% - (var(--box-size) / 2));
+  right: calc(99% - (var(--box-size) / 2));
+}
+
+.photo-frame::after {
+  --box-size: 5em;
+  bottom: calc(98% - (var(--box-size) / 2));
+  left: calc(98% - (var(--box-size) / 2));
+  background: linear-gradient(
+      45deg,
+      var(--color-gray-medium) 45%,
+      transparent 45%
+    ),
+    radial-gradient(
+      var(--color-purple) 30%,
+      var(--color-yellow) 30% 70%,
+      var(--color-gray-medium) 70%,
+      transparent 70%
+    );
+}
+
+@keyframes turnZ {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.header-main {
+  min-height: 100vh;
+  margin-top: 55px;
+}
+
+/* ------> Service */
+.icon-services {
+  --box-size: 70px;
+  width: var(--box-size);
+  height: var(--box-size);
+  padding: 10px;
+}
+
+/* ------> Portfolio */
+.portfolio-item > img {
+  transition: transform 0.4s;
+}
+
+.portfolio-item:hover > img {
+  transform: scale(0.96);
+}
+
+/* ------> Periféricos y Cursos */
+#secPerifericos,
+#secCursos {
+  background-color: var(--color-gray-medium);
+}
+
+#secPerifericos h2,
+#secCursos h2 {
+  color: var(--color-purple);
+  font-weight: bold;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+#secPerifericos h2::after,
+#secCursos h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--color-purple),
+    var(--color-blue-medium)
+  );
+}
+
+#secPerifericos .card,
+#secCursos .card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 20px rgba(99, 44, 231, 0.1);
+  margin-top: 10px;
+}
+
+#secPerifericos .card:hover,
+#secCursos .card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 15px 30px rgba(99, 44, 231, 0.2);
+}
+
+#secPerifericos .card-img-top,
+#secCursos .card-img-top {
+  height: 250px;
+  object-fit: contain;
+  transition: all 0.5s ease;
+}
+
+#secPerifericos .card:hover .card-img-top,
+#secCursos .card:hover .card-img-top {
+  transform: scale(1.1);
+}
+
+#secPerifericos .card-body,
+#secCursos .card-body {
+  padding: 1.5rem;
+  background: white;
+}
+
+#secPerifericos .card-title,
+#secCursos .card-title {
+  color: var(--color-purple);
+  font-weight: 600;
+}
+
+#secPerifericos .card:hover .card-title,
+#secCursos .card:hover .card-title {
+  color: var(--color-purple-hover);
+  font-weight: 700;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+#secPerifericos .card-subtitle,
+#secCursos .card-subtitle {
+  color: var(--color-blue-medium);
+}
+
+#secPerifericos .btn,
+#secCursos .btn {
+  background-color: var(--color-purple);
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+#secPerifericos .btn::before,
+#secCursos .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: all 0.4s ease;
+}
+
+#secPerifericos .btn:hover::before,
+#secCursos .btn:hover::before {
+  left: 100%;
+}
+
+#secPerifericos .btn:hover,
+#secCursos .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(99, 44, 231, 0.3);
+}
+
+/* Efectos adicionales de gradiente */
+#secPerifericos .card,
+#secCursos .card {
+  position: relative;
+}
+
+#secPerifericos .card::after,
+#secCursos .card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(
+    to right,
+    var(--color-purple),
+    var(--color-blue-medium)
+  );
+}
+
+/* ------> Clients */
+.bg-purple {
+  background-image: url(../img/periféricos/footer2_background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: auto;
+}
+
+.bg-purple > p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  color: var(--color-gray);
+  text-align: start;
+  padding: 100px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 376px) {
+  body {
+    margin-top: 4rem;
+  }
+
+  .header-main {
+    height: initial; /* el alto que definan sus hijos */
+  }
+
+  .photo-frame {
+    font-size: 11px; /* 33px */
+  }
+}
+
+@media (max-width: 768px) {
+  #perifericos .card,
+  #cursos .card {
+    margin-bottom: 2rem;
+  }
+}
